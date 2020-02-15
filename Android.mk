@@ -186,9 +186,11 @@ LOCAL_REQUIRED_MODULES += \
     plat_sepolicy_vers.txt
 
 ifneq ($(with_asan),true)
+ifneq ($(SELINUX_IGNORE_NEVERALLOWS),true) 
 LOCAL_REQUIRED_MODULES += \
     treble_sepolicy_tests \
     sepolicy_tests
+endif
 endif
 
 # Include precompiled policy, unless told otherwise
